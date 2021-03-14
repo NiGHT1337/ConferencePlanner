@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace GraphQL.Data
 {
@@ -15,5 +16,8 @@ namespace GraphQL.Data
 
         [StringLength(1000)]
         public virtual string? WebSite { get; set; }
+
+        public ICollection<SessionSpeaker> SessionSpeakers { get; set; } =
+            new List<SessionSpeaker>();
     }
 }
