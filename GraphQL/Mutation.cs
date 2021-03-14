@@ -1,4 +1,5 @@
 ﻿using GraphQL.Data;
+using GraphQL.Extensions;
 using HotChocolate;
 using System.Threading.Tasks;
 
@@ -6,6 +7,7 @@ namespace GraphQL
 {
     public class Mutation
     {
+        [UseApplicationDbContext]
         public async Task<AddSpeakerPayload> AddSpeakerAsync(
             AddSpeakerInput input,
             [Service] ApplicationDbContext context)

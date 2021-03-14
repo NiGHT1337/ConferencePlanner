@@ -8,7 +8,6 @@ namespace GraphQL
         {
             Speaker = speaker;
         }
-
         public Speaker Speaker { get; }
     }
 }
