@@ -1,16 +1,18 @@
 ﻿using GraphQL.Data;
 using GraphQL.Extensions;
 using HotChocolate;
+using HotChocolate.Types;
 using System.Threading.Tasks;
 
-namespace GraphQL
+namespace GraphQL.Speakers
 {
-    public class Mutation
+    [ExtendObjectType(Name = "Mutation")]
+    public class SpeakerMutations
     {
         [UseApplicationDbContext]
         public async Task<AddSpeakerPayload> AddSpeakerAsync(
             AddSpeakerInput input,
-            [Service] ApplicationDbContext context)
+            [ScopedService] ApplicationDbContext context)
         {
             var speaker = new Speaker
             {
